@@ -61,7 +61,8 @@ module React
 
       end
 
-      initializer "react_rails.set_variant", after: :engines_blank_point, group: :all do |app|
+      config.before_initialize do |app|
+      # initializer "react_rails.set_variant", after: :engines_blank_point, group: :all do |app|
         asset_variant = React::Rails::AssetVariant.new({
           variant: app.config.react.variant,
           addons: app.config.react.addons,
